@@ -11,7 +11,6 @@
 // Derive the current path
 $plugin_path = plugin_dir_url(__FILE__);
 
-
 function tkc_enqueue() {
   global $plugin_path;
   wp_enqueue_script('jquery');
@@ -26,22 +25,19 @@ add_action('wp_enqueue_scripts', 'tkc_enqueue');
 function tkc_engage() {
   ?><script type="text/javascript">
       jQuery(document).ready(function($){
-        $('.button').raptorize({
-          'enterOn' : 'click',
-        });
+        // $('.button').raptorize({
+        //   'enterOn' : 'click',
+        // });
 
         $(window).konami(function(){
-          alert('Konami Code Activated');
           <?php do_action('easter_egg_activate'); ?>
         });
       });
-    </script>
-
-    <a href="#" class="button">RAPTOR</a>
-    
-    <?php
-
+    </script><?php //<a href="#" class="button">RAPTOR</a>
 }
 add_action('wp_footer', 'tkc_engage');
 
-require_once('eggs/raptor/raptorize.php');
+
+// Get the eggs!
+// require_once('eggs/raptor/raptorize.php');
+include_once "eggs/disappear.php";
